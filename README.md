@@ -7,7 +7,9 @@
    2. [Install](#install)
    3. [Configure](#configure)
       1. [Default Configuration](#default-configuration)
-2. [Community](#community)
+2. [External Resources](#external-resources)
+   1. [Official Documentation](#official-documentation)
+3. [Community](#community)
 
 ***
 
@@ -220,12 +222,11 @@ key_prefixes:
 #     Default value:
 #         True
 # Description:
-#     None
+#     Whether the Feature is enabled or not.
 # Required:
 #     False
 # Examples:
 #     None
-enabled: false
 
 
 # =============
@@ -289,9 +290,79 @@ feature_name: OpenStudioLandscapes-n8n
 #     None
 
 
-# =================
-# ENV_VAR_PORT_HOST
-# -----------------
+# ================
+# n8n_docker_image
+# ----------------
+#
+# Type: <class 'str'>
+# Description:
+#     None
+# Required:
+#     False
+# Examples:
+#     None
+n8n_docker_image: docker.n8n.io/n8nio/n8n
+
+
+# ================
+# GENERIC_TIMEZONE
+# ----------------
+#
+# Type: <class 'str'>
+# Description:
+#     None
+# Required:
+#     False
+# Examples:
+#     None
+GENERIC_TIMEZONE: Europe/UTC
+
+
+# ==
+# TZ
+# --
+#
+# Type: <class 'str'>
+# Description:
+#     None
+# Required:
+#     False
+# Examples:
+#     None
+TZ: Europe/UTC
+
+
+# =====================================
+# N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+# -------------------------------------
+#
+# Type: <class 'bool'>
+# Description:
+#     None
+# Required:
+#     False
+# Examples:
+#     None
+N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
+
+
+# ===================
+# N8N_RUNNERS_ENABLED
+# -------------------
+#
+# Type: <class 'bool'>
+# Description:
+#     None
+# Required:
+#     False
+# Examples:
+#     None
+N8N_RUNNERS_ENABLED: true
+
+
+# =============
+# n8n_port_host
+# -------------
 #
 # Type: <class 'int'>
 # Description:
@@ -300,26 +371,26 @@ feature_name: OpenStudioLandscapes-n8n
 #     False
 # Examples:
 #     None
-ENV_VAR_PORT_HOST: 1234
+n8n_port_host: 5678
 
 
-# ======================
-# ENV_VAR_PORT_CONTAINER
-# ----------------------
+# ==================
+# n8n_port_container
+# ------------------
 #
 # Type: <class 'int'>
 # Description:
-#     The Ayon container port.
+#     The n8n container port.
 # Required:
 #     False
 # Examples:
 #     None
-ENV_VAR_PORT_CONTAINER: 2345
+n8n_port_container: 5678
 
 
-# ==============
-# MOUNTED_VOLUME
-# --------------
+# ==========
+# n8n_volume
+# ----------
 #
 # Type: <class 'pathlib.Path'>
 # Description:
@@ -328,7 +399,21 @@ ENV_VAR_PORT_CONTAINER: 2345
 #     False
 # Examples:
 #     None
-MOUNTED_VOLUME: '{DOT_LANDSCAPES}/{LANDSCAPE}/{FEATURE}/volume'
+n8n_volume: '{DOT_LANDSCAPES}/{LANDSCAPE}/{FEATURE}/n8n_data'
+
+
+# ================
+# N8N_USE_POSTGRES
+# ----------------
+#
+# Type: <class 'bool'>
+# Description:
+#     None
+# Required:
+#     False
+# Examples:
+#     None
+N8N_USE_POSTGRES: false
 ```
 
 
@@ -336,6 +421,17 @@ MOUNTED_VOLUME: '{DOT_LANDSCAPES}/{LANDSCAPE}/{FEATURE}/volume'
 
 
 ***
+
+# External Resources
+
+[![ Logo n8n ](https://n8n.io/guidelines/logo-dark.svg)](https://n8n.io/)
+
+## Official Documentation
+
+- [GitHub](https://github.com/n8n-io/n8n)
+- [n8n Documentation](https://docs.n8n.io/)
+- [n8n Docker Installation (self hosted)](https://docs.n8n.io/hosting/installation/docker/)
+- [n8n Docker Image Readme](https://github.com/n8n-io/n8n/tree/master/docker/images/n8n)
 
 ***
 
@@ -368,4 +464,4 @@ To follow up on the previous LinkedIn publications, visit:
 
 ***
 
-Last changed: **2025-12-31 10:05:25 UTC**
+Last changed: **2025-12-31 11:23:19 UTC**
