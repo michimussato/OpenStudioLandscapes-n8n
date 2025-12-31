@@ -10,34 +10,40 @@ def readme_feature(
 
     # Some Specific information
 
-    # doc.add_heading(
-    #     text=main_header,
-    #     level=1,
-    # )
+    doc.add_heading(
+        text=main_header,
+        level=1,
+    )
 
     # Logo
 
-    # doc.add_paragraph(
-    #     snakemd.Inline(
-    #         text=textwrap.dedent(
-    #             """\
-    #             Logo Template\
-    #             """
-    #         ),
-    #         image={
-    #             "Template": "https://www.url.com/yourlogo.png",
-    #         }["Template"],
-    #         link="https://www.url.com",
-    #     ).__str__()
-    # )
-    #
-    # doc.add_paragraph(
-    #     text=textwrap.dedent(
-    #         """\
-    #         Official Template information.\
-    #         """
-    #     )
-    # )
+    doc.add_paragraph(
+        snakemd.Inline(
+            text=textwrap.dedent(
+                """
+                Logo n8n
+                """
+            ),
+            image={
+                "n8n": "https://n8n.io/guidelines/logo-dark.svg",
+            }["n8n"],
+            link="https://n8n.io/",
+        ).__str__()
+    )
+
+    doc.add_heading(
+        text="Official Documentation",
+        level=2,
+    )
+
+    doc.add_unordered_list(
+        [
+            "[GitHub](https://github.com/n8n-io/n8n)",
+            "[n8n Documentation](https://docs.n8n.io/)",
+            "[n8n Docker Installation (self hosted)](https://docs.n8n.io/hosting/installation/docker/)",
+            "[n8n Docker Image Readme](https://github.com/n8n-io/n8n/tree/master/docker/images/n8n)",
+        ]
+    )
 
     ##################################################
     # TO EDIT THIS FILE FOR YOUR OWN FEATURE,

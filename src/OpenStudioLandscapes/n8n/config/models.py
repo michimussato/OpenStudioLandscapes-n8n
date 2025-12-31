@@ -28,33 +28,83 @@ class Config(FeatureBaseModel):
 
     key_prefixes: List[str] = constants.ASSET_HEADER["key_prefix"]
 
-    enabled: bool = False
+    n8n_docker_image: str = Field(
+        default="docker.n8n.io/n8nio/n8n",
+    )
 
-    ENV_VAR_PORT_HOST: PositiveInt = Field(
-        default=1234,
+    GENERIC_TIMEZONE: str = Field(
+        default="Europe/UTC",
+    )
+
+    TZ: str = Field(
+        default="Europe/UTC",
+    )
+
+    N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: bool = Field(
+        default=True,
+    )
+
+    N8N_RUNNERS_ENABLED: bool = Field(
+        default=True,
+    )
+
+    n8n_port_host: PositiveInt = Field(
+        default=5678,
         description="The host port.",
         frozen=True,
     )
-    ENV_VAR_PORT_CONTAINER: PositiveInt = Field(
-        default=2345,
-        description="The Ayon container port.",
+    n8n_port_container: PositiveInt = Field(
+        default=5678,
+        description="The n8n container port.",
         frozen=False,
     )
 
-    MOUNTED_VOLUME: pathlib.Path = Field(
+    n8n_volume: pathlib.Path = Field(
         description="The host side mounted volume.",
-        default=pathlib.Path("{DOT_LANDSCAPES}/{LANDSCAPE}/{FEATURE}/volume"),
+        default=pathlib.Path("{DOT_LANDSCAPES}/{LANDSCAPE}/{FEATURE}/n8n_data"),
     )
+
+    N8N_USE_POSTGRES: bool = Field(
+        default=False,
+    )
+
+    # DB_TYPE: str = Field(
+    #     default="postgresdb",
+    # )
+    #
+    # DB_POSTGRESDB_DATABASE: str = Field(
+    #     default=None,
+    # )
+    #
+    # DB_POSTGRESDB_HOST: str = Field(
+    #     default=None,
+    # )
+    #
+    # DB_POSTGRESDB_PORT: str = Field(
+    #     default=None,
+    # )
+    #
+    # DB_POSTGRESDB_USER: str = Field(
+    #     default=None,
+    # )
+    #
+    # DB_POSTGRESDB_SCHEMA: str = Field(
+    #     default=None,
+    # )
+    #
+    # DB_POSTGRESDB_PASSWORD: str = Field(
+    #     default=None,
+    # )
 
     # EXPANDABLE PATHS
     @property
-    def MOUNTED_VOLUME_expanded(self) -> pathlib.Path:
+    def n8n_volume_expanded(self) -> pathlib.Path:
         LOGGER.debug(f"{self.env = }")
         if self.env is None:
             raise KeyError("`env` is `None`.")
-        LOGGER.debug(f"Expanding {self.MOUNTED_VOLUME}...")
+        LOGGER.debug(f"Expanding {self.n8n_volume}...")
         ret = pathlib.Path(
-            self.MOUNTED_VOLUME.expanduser()
+            self.n8n_volume.expanduser()
             .as_posix()
             .format(
                 **{

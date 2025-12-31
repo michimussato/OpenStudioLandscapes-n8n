@@ -304,13 +304,13 @@ def compose_n8n(
         network_dict = {"networks": list(compose_networks.get("networks", {}).keys())}
         ports_dict = {
             "ports": [
-                f"{CONFIG.ENV_VAR_PORT_HOST}:{CONFIG.ENV_VAR_PORT_CONTAINER}",
+                f"{CONFIG.n8n_port_host}:{CONFIG.n8n_port_container}",
             ]
         }
     elif "network_mode" in compose_networks:
         network_dict = {"network_mode": compose_networks["network_mode"]}
 
-    host_mount: pathlib.Path = CONFIG.MOUNTED_VOLUME_expanded
+    host_mount: pathlib.Path = CONFIG.n8n_volume_expanded
     host_mount.mkdir(parents=True, exist_ok=True)
 
     volumes_dict = {
@@ -358,27 +358,36 @@ def compose_n8n(
     #     [service_name, env["OPENSTUDIOLANDSCAPES__DOMAIN_LAN"]]
     # )
 
+    environment = {
+        "GENERIC_TIMEZONE": CONFIG.GENERIC_TIMEZONE,
+        "TZ": CONFIG.TZ,
+        "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS": CONFIG.N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS,
+        "N8N_RUNNERS_ENABLED": CONFIG.N8N_RUNNERS_ENABLED,
+    }
+
+    # https://docs.n8n.io/hosting/installation/docker/#using-with-postgresql
+    if CONFIG.N8N_USE_POSTGRES:
+        # Todo
+        #  - [ ] Implement CONFIG.N8N_USE_POSTGRES
+        raise NotImplementedError
+        # environment.update(
+        #     {
+        #
+        #     }
+        # )
+
     docker_dict = {
         "services": {
             service_name: {
+                "image": CONFIG.n8n_docker_image,
                 "container_name": container_name,
                 "hostname": host_name,
                 "domainname": config_engine.openstudiolandscapes__domain_lan,
-                # "mac_address": ":".join(re.findall(r"..", env["HOST_ID"])),
                 "restart": DockerComposePolicies.RESTART_POLICY.ALWAYS.value,
-                # "image": "${DOT_OVERRIDES_REGISTRY_NAMESPACE:-docker.io/openstudiolandscapes}/%s:%s"
-                # % (build["image_name"], build["image_tags"][0]),
-                "image": "%s%s:%s"
-                % (
-                    build["image_prefixes"],
-                    build["image_name"],
-                    build["image_tags"][0],
-                ),
+                "environment": environment,
                 **copy.deepcopy(volumes_dict),
                 **copy.deepcopy(network_dict),
                 **copy.deepcopy(ports_dict),
-                # "environment": {
-                # },
                 # "healthcheck": {
                 # },
                 # "command": command,
