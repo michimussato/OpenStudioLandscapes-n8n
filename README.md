@@ -2,22 +2,12 @@
 
 ***
 
-1. [Feature: OpenStudioLandscapes-Template](#feature-openstudiolandscapes-template)
+1. [Feature: OpenStudioLandscapes-n8n](#feature-openstudiolandscapes-n8n)
    1. [Brief](#brief)
    2. [Install](#install)
    3. [Configure](#configure)
       1. [Default Configuration](#default-configuration)
-2. [Create new Feature from this Template](#create-new-feature-from-this-template)
-   1. [Create a new repository from this Template](#create-a-new-repository-from-this-template)
-   2. [Clone new Feature to your local drive](#clone-new-feature-to-your-local-drive)
-   3. [Replace `Template` occurrences in `OpenStudioLandscapes-NewFeature`](#replace-template-occurrences-in-openstudiolandscapes-newfeature)
-   4. [Create `pyproject.toml`](#create-pyprojecttoml)
-   5. [Commit your initial Setup](#commit-your-initial-setup)
-   6. [Tag `OpenStudioLandscapesUtil` Repos](#tag-openstudiolandscapesutil-repos)
-   7. [Enable OpenStudioLandscapes-NewFeature in the Engine](#enable-openstudiolandscapes-newfeature-in-the-engine)
-   8. [Known Issues](#known-issues)
-      1. [`no command specified`](#no-command-specified)
-3. [Community](#community)
+2. [Community](#community)
 
 ***
 
@@ -25,7 +15,7 @@ This `README.md` was dynamically created with [OpenStudioLandscapesUtil-ReadmeGe
 
 ***
 
-# Feature: OpenStudioLandscapes-Template
+# Feature: OpenStudioLandscapes-n8n
 
 ## Brief
 
@@ -41,12 +31,12 @@ This is an extension to the OpenStudioLandscapes ecosystem. The full documentati
 Clone this repository into `OpenStudioLandscapes/.features` (assuming the current working directory to be the Git repository root `./OpenStudioLandscapes`):
 
 ```shell
-git -C ./.features clone https://github.com/michimussato/OpenStudioLandscapes-Template.git
+git -C ./.features clone https://github.com/michimussato/OpenStudioLandscapes-n8n.git
 # Check out a specific branch with:
 # List branches: 
-# git -C ./.features/OpenStudioLandscapes-Template branch -a
+# git -C ./.features/OpenStudioLandscapes-n8n branch -a
 # Checkout branch: 
-# git -C ./.features/OpenStudioLandscapes-Template checkout <branch>
+# git -C ./.features/OpenStudioLandscapes-n8n checkout <branch>
 ```
 
 Install into OpenStudioLandscapes `venv` (`./OpenStudioLandscapes/.venv`):
@@ -55,7 +45,7 @@ Install into OpenStudioLandscapes `venv` (`./OpenStudioLandscapes/.venv`):
 source .venv/bin/activate
 # python -m pip install --upgrade pip setuptools
 # the following removes the `openstudiolandscapes` executable for now (will be fixed soon)
-pip install -e "./.features/OpenStudioLandscapes-Template"
+pip install -e "./.features/OpenStudioLandscapes-n8n"
 # so, re-install `OpenStudioLandscapes` engine:
 pip install -e "."
 ```
@@ -84,7 +74,7 @@ A local config store location will be created if it doesn't exist, together with
 > OPENSTUDIOLANDSCAPES__CONFIGSTORE_ROOT="~/.config/OpenStudioLandscapes/my-custom-config-store"
 > ```
 
-The following settings are available in `OpenStudioLandscapes-Template` and are based on [`OpenStudioLandscapes-Template/tree/main/OpenStudioLandscapes/Template/config/models.py`](https://github.com/michimussato/OpenStudioLandscapes-Template/tree/main/OpenStudioLandscapes/Template/config/models.py).
+The following settings are available in `OpenStudioLandscapes-n8n` and are based on [`OpenStudioLandscapes-n8n/tree/main/OpenStudioLandscapes/n8n/config/models.py`](https://github.com/michimussato/OpenStudioLandscapes-n8n/tree/main/OpenStudioLandscapes/n8n/config/models.py).
 
 ### Default Configuration
 
@@ -192,7 +182,7 @@ The following settings are available in `OpenStudioLandscapes-Template` and are 
 #     False
 # Examples:
 #     None
-group_name: OpenStudioLandscapes_Template
+group_name: OpenStudioLandscapes_n8n
 
 
 # ============
@@ -214,7 +204,7 @@ group_name: OpenStudioLandscapes_Template
 # Examples:
 #     None
 key_prefixes:
-- OpenStudioLandscapes_Template
+- OpenStudioLandscapes_n8n
 
 
 # =======
@@ -276,7 +266,7 @@ enabled: false
 #     False
 # Examples:
 #     None
-feature_name: OpenStudioLandscapes-Template
+feature_name: OpenStudioLandscapes-n8n
 
 
 # ==============
@@ -347,117 +337,6 @@ MOUNTED_VOLUME: '{DOT_LANDSCAPES}/{LANDSCAPE}/{FEATURE}/volume'
 
 ***
 
-# Create new Feature from this Template
-
-[![Logo OpenStudioLandscapes ](https://github.com/michimussato/OpenStudioLandscapes/raw/main/media/images/logo128.png)](https://www.url.com)
-
-## Create a new repository from this Template
-
-Click `Use this template` and select `Create a new repository`
-
-![Create a new repository ](media/images/use_template.png)
-
-And fill in information as needed by specifying the `Repository name *` of the OpenStudioLandscapes Feature (i.e. `OpenStudioLandscapes-NewFeature`):
-
-![Create a new repository ](media/images/create_repository.png)
-
-## Clone new Feature to your local drive
-
-Clone the new Feature into the `.features` directory of your local `OpenStudioLandscapes` clone:
-
-```generic
-cd /to/your/git/repos/OpenStudioLandscapes/.features
-git clone <GIT_REPOSITORY_URL>
-```
-
-## Replace `Template` occurrences in `OpenStudioLandscapes-NewFeature`
-
-Rename the package directory from `Template` to `NewFeature`:
-
-```generic
-NEW_FEATURE="NewFeature"
-
-cd /to/your/git/repos/OpenStudioLandscapes/.features/OpenStudioLandscapes-${NEW_FEATURE}
-mv src/OpenStudioLandscapes/Template src/OpenStudioLandscapes/${NEW_FEATURE}
-```
-
-Rename all occurrences of `template` in your new Feature with the correct name in the following files:
-
-- update [`./pyproject.toml`](./pyproject.toml)
-- update `./pyproject_layer.yaml`
-- update `./src/OpenStudioLandscapes/${NEW_FEATURE}/__init__.py`
-- update `./src/OpenStudioLandscapes/${NEW_FEATURE}/assets.py`
-- update `./src/OpenStudioLandscapes/${NEW_FEATURE}/constants.py`
-- update `./src/OpenStudioLandscapes/${NEW_FEATURE}/definitions.py`
-- update `./src/OpenStudioLandscapes/${NEW_FEATURE}/readme_feature.py` [`snakemd` Documentation](https://www.snakemd.io/en/latest/)
-- update `/.coveragerc`
-- remove media `rm ./media/images/*.*`
-- remove nox reports `rm ./.nox/*.*`
-- remove sbom reports `rm ./.sbom/*.*`
-
-## Create `pyproject.toml`
-
-```generic
-nox -session "readme(OpenStudioLandscapes-<FEATURE>)"
-```
-
-## Commit your initial Setup
-
-Commit all changes to Git:
-
-```generic
-git add *
-git commit -m "Initial Setup"
-git push
-```
-
-## Tag `OpenStudioLandscapesUtil` Repos
-
-- [OpenStudioLandscapesUtil-HarborCLI](https://github.com/michimussato/OpenStudioLandscapesUtil-HarborCLI?tab=readme-ov-file#tagging)
-- [OpenStudioLandscapesUtil-ReadmeGenerator](https://github.com/michimussato/OpenStudioLandscapesUtil-ReadmeGenerator?tab=readme-ov-file#tagging)
-
-## Enable OpenStudioLandscapes-NewFeature in the Engine
-
-Commit all changes to Git:
-
-```generic
-cd /to/your/git/repos/OpenStudioLandscapes
-source .venv/bin/activate
-pip install --editable .features/OpenStudioLandscapes-${NEW_FEATURE}[dev]
-pip install --editable .[dev]
-```
-
-Edit the `OpenStudioLandscapes.engine` to use your new Feature:
-
-- update `OpenStudioLandscapes/.env`
-- update `OpenStudioLandscapes/src/OpenStudioLandscapes/engine/features.py`
-- update `OpenStudioLandscapes/README.md#current-feature-statuses`
-
-## Known Issues
-
-### `no command specified`
-
-`OpenStudioLandscapes-Template` can't be launched as a Feature in a Landscape. If you do, this is the error message you will be presented with:
-
-```shell
-$ /home/michael/git/repos/OpenStudioLandscapes/.landscapes/2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0/ComposeScope_default__ComposeScope_default/ComposeScope_default__DOCKER_COMPOSE/docker_compose/docker_compose_up.sh
-~/git/repos/OpenStudioLandscapes/.landscapes/2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0/ComposeScope_default__ComposeScope_default/ComposeScope_default__DOCKER_COMPOSE/docker_compose ~
-Working Directory: /home/michael/git/repos/OpenStudioLandscapes/.landscapes/2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0/ComposeScope_default__ComposeScope_default/ComposeScope_default__DOCKER_COMPOSE/docker_compose
-Sourcing ../../../../2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0/.overrides file...
-Sourced successfully.
- Container hbbs--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container dagster--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container template--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container mongo-express-10-2--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container repository-installer-10-2--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container ayon-server--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container opencue-flyway--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container kitsu--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Creating
- Container template--2025-10-20-12-51-39-68351d36801042cb943f1675e611e3c0  Error response from daemon: no command specified
-Error response from daemon: no command specified
-~
-```
-
 ***
 
 # Community
@@ -489,4 +368,4 @@ To follow up on the previous LinkedIn publications, visit:
 
 ***
 
-Last changed: **2025-12-30 01:27:25 UTC**
+Last changed: **2025-12-31 10:05:25 UTC**

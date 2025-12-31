@@ -38,9 +38,9 @@ from OpenStudioLandscapes.engine.policies.retry import build_docker_image_retry_
 from OpenStudioLandscapes.engine.utils import *
 from OpenStudioLandscapes.engine.utils.docker.compose_dicts import *
 
-from OpenStudioLandscapes.Template import dist
-from OpenStudioLandscapes.Template.config.models import CONFIG_STR, Config
-from OpenStudioLandscapes.Template.constants import *
+from OpenStudioLandscapes.n8n import dist
+from OpenStudioLandscapes.n8n.config.models import CONFIG_STR, Config
+from OpenStudioLandscapes.n8n.constants import *
 
 # https://github.com/yaml/pyyaml/issues/722#issuecomment-1969292770
 yaml.SafeDumper.add_multi_representer(
@@ -285,7 +285,7 @@ def compose_networks(
         ),
     },
 )
-def compose_Template(
+def compose_n8n(
     context: AssetExecutionContext,
     CONFIG: Config,  # pylint: disable=redefined-outer-name
     build: Dict,  # pylint: disable=redefined-outer-name
@@ -346,7 +346,7 @@ def compose_Template(
 
     command = []
 
-    service_name = "Template"
+    service_name = "n8n"
     container_name, host_name = get_docker_compose_names(
         context=context,
         service_name=service_name,
@@ -402,8 +402,8 @@ def compose_Template(
 @asset(
     **ASSET_HEADER,
     ins={
-        "compose_Template": AssetIn(
-            AssetKey([*ASSET_HEADER["key_prefix"], "compose_Template"]),
+        "compose_n8n": AssetIn(
+            AssetKey([*ASSET_HEADER["key_prefix"], "compose_n8n"]),
         ),
     },
 )
