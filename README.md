@@ -424,7 +424,7 @@ N8N_USE_POSTGRES: false
 
 # External Resources
 
-[![ Logo n8n ](https://n8n.io/guidelines/logo-dark.svg)](https://n8n.io/)
+[![ Logo n8n ](https://n8n.io/brandguidelines/logo-dark.svg)](https://n8n.io/)
 
 ## Official Documentation
 

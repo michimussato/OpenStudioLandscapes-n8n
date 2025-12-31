@@ -25,7 +25,7 @@ def readme_feature(
                 """
             ),
             image={
-                "n8n": "https://n8n.io/guidelines/logo-dark.svg",
+                "n8n": "https://n8n.io/brandguidelines/logo-dark.svg",
             }["n8n"],
             link="https://n8n.io/",
         ).__str__()
