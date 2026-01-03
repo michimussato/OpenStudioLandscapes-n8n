@@ -49,7 +49,7 @@ class Config(FeatureBaseModel):
     )
 
     n8n_port_host: PositiveInt = Field(
-        default=5678,
+        default=5666,
         description="The host port.",
         frozen=True,
     )
