@@ -19,11 +19,9 @@ def readme_feature(
 
     doc.add_paragraph(
         snakemd.Inline(
-            text=textwrap.dedent(
-                """
+            text=textwrap.dedent("""
                 Logo n8n
-                """
-            ),
+                """),
             image={
                 "n8n": "https://n8n.io/brandguidelines/logo-dark.svg",
             }["n8n"],
