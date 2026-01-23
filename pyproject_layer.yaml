@@ -3,17 +3,19 @@ project:
   description: n8n Feature for OpenStudioLandscapes
   name: OpenStudioLandscapes-n8n
   optional-dependencies:
+    optional-base:
+    - OpenStudioLandscapes @ git+https://github.com/michimussato/OpenStudioLandscapes.git
     dev:
-    - OpenStudioLandscapes-n8n[testing]
     - OpenStudioLandscapes-n8n[lint]
-    - OpenStudioLandscapes-n8n[nox]
     - OpenStudioLandscapes-n8n[sbom]
-    - OpenStudioLandscapes-n8n[coverage]
     - OpenStudioLandscapes-n8n[readme]
-    nox:
-    - OpenStudioLandscapes-n8n[testing]
+    lint:
+    - OpenStudioLandscapes-n8n[optional-base]
+    readme:
+    - OpenStudioLandscapes-n8n[optional-base]
     sbom:
     - OpenStudioLandscapes-n8n[graphviz]
+    - OpenStudioLandscapes-n8n[optional-base]
   urls:
     Homepage: https://github.com/michimussato/OpenStudioLandscapes-n8n
 tool:
