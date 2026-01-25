@@ -195,9 +195,12 @@ def compose_n8n(
         )
 
     volumes_dict = {
-        "volumes": [
-            *_volume_relative,
-        ],
+        "volumes": list(
+            {
+                *_volume_relative,
+                *config_engine.global_bind_volumes,
+            }
+        ),
     }
 
     command = []
@@ -213,13 +216,6 @@ def compose_n8n(
     # host_name = ".".join(
     #     [service_name, env["OPENSTUDIOLANDSCAPES__DOMAIN_LAN"]]
     # )
-
-    environment = {
-        "GENERIC_TIMEZONE": CONFIG.GENERIC_TIMEZONE,
-        "TZ": CONFIG.TZ,
-        "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS": CONFIG.N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS,
-        "N8N_RUNNERS_ENABLED": CONFIG.N8N_RUNNERS_ENABLED,
-    }
 
     # https://docs.n8n.io/hosting/installation/docker/#using-with-postgresql
     if CONFIG.N8N_USE_POSTGRES:
@@ -240,7 +236,13 @@ def compose_n8n(
                 "hostname": host_name,
                 "domainname": config_engine.openstudiolandscapes__domain_lan,
                 "restart": DockerComposePolicies.RESTART_POLICY.ALWAYS.value,
-                "environment": environment,
+                "environment": {
+                    "GENERIC_TIMEZONE": CONFIG.GENERIC_TIMEZONE,
+                    "TZ": CONFIG.TZ,
+                    "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS": CONFIG.N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS,
+                    "N8N_RUNNERS_ENABLED": CONFIG.N8N_RUNNERS_ENABLED,
+                    **config_engine.global_environment_variables,
+                },
                 **copy.deepcopy(volumes_dict),
                 **copy.deepcopy(network_dict),
                 **copy.deepcopy(ports_dict),
