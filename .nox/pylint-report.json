@@ -546,19 +546,6 @@
         "message-id": "C0116"
     },
     {
-        "type": "error",
-        "module": "OpenStudioLandscapes.n8n.config.models",
-        "obj": "Config.n8n_volume_expanded",
-        "line": 107,
-        "column": 12,
-        "endLine": 107,
-        "endColumn": 38,
-        "path": "src/OpenStudioLandscapes/n8n/config/models.py",
-        "symbol": "no-member",
-        "message": "Instance of 'FieldInfo' has no 'expanduser' member",
-        "message-id": "E1101"
-    },
-    {
         "type": "convention",
         "module": "OpenStudioLandscapes.n8n.doc.readme",
         "obj": "",
