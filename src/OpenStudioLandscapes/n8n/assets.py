@@ -171,7 +171,7 @@ def compose_n8n(
 
     volumes_dict = {
         "volumes": [
-            f"{host_mount.as_posix()}:/some/host/dir:rw",
+            # f"{host_mount.as_posix()}:/some/host/dir:rw",
         ],
     }
 
@@ -199,6 +199,7 @@ def compose_n8n(
             {
                 *_volume_relative,
                 *config_engine.global_bind_volumes,
+                *CONFIG.local_bind_volumes,
             }
         ),
     }
@@ -242,6 +243,7 @@ def compose_n8n(
                     "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS": CONFIG.N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS,
                     "N8N_RUNNERS_ENABLED": CONFIG.N8N_RUNNERS_ENABLED,
                     **config_engine.global_environment_variables,
+                    **CONFIG.local_environment_variables,
                 },
                 **copy.deepcopy(volumes_dict),
                 **copy.deepcopy(network_dict),
