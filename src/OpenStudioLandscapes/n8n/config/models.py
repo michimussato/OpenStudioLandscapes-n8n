@@ -104,7 +104,7 @@ class Config(FeatureBaseModel):
             raise KeyError("`env` is `None`.")
         LOGGER.debug(f"Expanding {self.n8n_volume}...")
         ret = pathlib.Path(
-            self.n8n_volume.expanduser()
+            self.n8n_volume.expanduser()  # pylint: disable=E1101
             .as_posix()
             .format(
                 **{
