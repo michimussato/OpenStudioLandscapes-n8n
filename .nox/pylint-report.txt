@@ -41,12 +41,11 @@ src/OpenStudioLandscapes/n8n/__init__.py:1:0: C0114: Missing module docstring (m
 ************* Module OpenStudioLandscapes.n8n.config.models
 src/OpenStudioLandscapes/n8n/config/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 src/OpenStudioLandscapes/n8n/config/models.py:13:0: C0413: Import "from OpenStudioLandscapes.engine.config.models import FeatureBaseModel" should be placed at the top of the module (wrong-import-position)
-src/OpenStudioLandscapes/n8n/config/models.py:14:0: C0413: Import "from OpenStudioLandscapes.engine.config.str_gen import get_config_str" should be placed at the top of the module (wrong-import-position)
-src/OpenStudioLandscapes/n8n/config/models.py:16:0: C0413: Import "from OpenStudioLandscapes.n8n import constants, dist" should be placed at the top of the module (wrong-import-position)
-src/OpenStudioLandscapes/n8n/config/models.py:19:0: C0115: Missing class docstring (missing-class-docstring)
-src/OpenStudioLandscapes/n8n/config/models.py:20:4: C0103: Class constant name "main" doesn't conform to UPPER_CASE naming style (invalid-name)
-src/OpenStudioLandscapes/n8n/config/models.py:23:0: C0115: Missing class docstring (missing-class-docstring)
-src/OpenStudioLandscapes/n8n/config/models.py:101:4: C0116: Missing function or method docstring (missing-function-docstring)
+src/OpenStudioLandscapes/n8n/config/models.py:15:0: C0413: Import "from OpenStudioLandscapes.n8n import constants, dist" should be placed at the top of the module (wrong-import-position)
+src/OpenStudioLandscapes/n8n/config/models.py:18:0: C0115: Missing class docstring (missing-class-docstring)
+src/OpenStudioLandscapes/n8n/config/models.py:19:4: C0103: Class constant name "main" doesn't conform to UPPER_CASE naming style (invalid-name)
+src/OpenStudioLandscapes/n8n/config/models.py:22:0: C0115: Missing class docstring (missing-class-docstring)
+src/OpenStudioLandscapes/n8n/config/models.py:100:4: C0116: Missing function or method docstring (missing-function-docstring)
 ************* Module OpenStudioLandscapes.n8n.doc.readme
 src/OpenStudioLandscapes/n8n/doc/readme.py:41:0: C0301: Line too long (104/100) (line-too-long)
 src/OpenStudioLandscapes/n8n/doc/readme.py:42:0: C0301: Line too long (101/100) (line-too-long)
@@ -55,5 +54,5 @@ src/OpenStudioLandscapes/n8n/doc/readme.py:6:0: C0116: Missing function or metho
 src/OpenStudioLandscapes/n8n/doc/readme.py:21:8: C2801: Unnecessarily calls dunder method __str__. Use str built-in function. (unnecessary-dunder-call)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.27/10 (previous run: 6.51/10, +0.76)
+Your code has been rated at 7.31/10 (previous run: 6.54/10, +0.77)
 
