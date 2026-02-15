@@ -31,13 +31,13 @@ class Config(FeatureBaseModel):
         default="docker.n8n.io/n8nio/n8n",
     )
 
-    GENERIC_TIMEZONE: str = Field(
-        default="Europe/UTC",
-    )
+    # GENERIC_TIMEZONE: str = Field(
+    #     default="Europe/UTC",
+    # )
 
-    TZ: str = Field(
-        default="Europe/UTC",
-    )
+    # TZ: str = Field(
+    #     default="Europe/UTC",
+    # )
 
     N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: bool = Field(
         default=True,
