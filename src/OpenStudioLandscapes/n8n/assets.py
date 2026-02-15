@@ -238,8 +238,8 @@ def compose_n8n(
                 "domainname": config_engine.openstudiolandscapes__domain_lan,
                 "restart": DockerComposePolicies.RESTART_POLICY.ALWAYS.value,
                 "environment": {
-                    "GENERIC_TIMEZONE": CONFIG.tz,
-                    "TZ": CONFIG.tz,
+                    "GENERIC_TIMEZONE": config_engine.tz,
+                    "TZ": config_engine.tz,
                     "N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS": CONFIG.N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS,
                     "N8N_RUNNERS_ENABLED": CONFIG.N8N_RUNNERS_ENABLED,
                     **config_engine.global_environment_variables,
