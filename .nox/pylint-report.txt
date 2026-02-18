@@ -54,5 +54,5 @@ src/OpenStudioLandscapes/n8n/doc/readme.py:6:0: C0116: Missing function or metho
 src/OpenStudioLandscapes/n8n/doc/readme.py:21:8: C2801: Unnecessarily calls dunder method __str__. Use str built-in function. (unnecessary-dunder-call)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.31/10 (previous run: 6.54/10, +0.77)
+Your code has been rated at 7.28/10 (previous run: 6.54/10, +0.74)
 
