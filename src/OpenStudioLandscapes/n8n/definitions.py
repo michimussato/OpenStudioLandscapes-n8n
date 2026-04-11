@@ -4,16 +4,14 @@ from dagster import (
 )
 
 import OpenStudioLandscapes.n8n.assets
-from OpenStudioLandscapes.engine.features.upstream_asset_specs import assets_external
 
-assets = load_assets_from_modules(
+assets_base = load_assets_from_modules(
     modules=[OpenStudioLandscapes.n8n.assets],
 )
 
 
 defs = Definitions(
     assets=[
-        *assets,
-        *assets_external,
+        *assets_base,
     ],
 )
