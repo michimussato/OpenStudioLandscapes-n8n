@@ -70,6 +70,11 @@ sbom = [
     "OpenStudioLandscapes-n8n[optional-base]",
     "cyclonedx-bom",
 ]
+testing = [
+    "pytest",
+    "pytest-cov",
+    "setuptools",
+]
 
 [project.readme]
 content-type = "text/markdown; charset=UTF-8"
