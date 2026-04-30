@@ -8,7 +8,10 @@ from pydantic import (
     PositiveInt,
 )
 
+from OpenStudioLandscapes.cli import LOGGING_LEVEL_DEFAULT
+
 LOGGER = get_dagster_logger(__name__)
+LOGGER.setLevel(LOGGING_LEVEL_DEFAULT)
 
 from OpenStudioLandscapes.engine.config.models import FeatureBaseModel
 
