@@ -8,7 +8,7 @@ from pydantic import (
     PositiveInt,
 )
 
-from OpenStudioLandscapes.n8n import constants, dist, LOGGER
+from OpenStudioLandscapes.n8n import LOGGER, constants, dist
 
 
 class Branches(enum.StrEnum):
