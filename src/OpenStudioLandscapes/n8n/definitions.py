@@ -5,8 +5,8 @@ from dagster import (
 
 import OpenStudioLandscapes.n8n.assets
 from OpenStudioLandscapes.n8n import (
-    dist,
     LOGGER,
+    dist,
 )
 
 LOGGER.info(f"Loading {dist.name} assets...")
