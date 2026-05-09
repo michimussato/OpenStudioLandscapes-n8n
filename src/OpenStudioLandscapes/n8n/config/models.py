@@ -10,8 +10,8 @@ from pydantic import (
 
 from OpenStudioLandscapes.n8n import (
     LOGGER,
-    constants,
     dist,
+    ASSET_HEADER,
 )
 
 
@@ -23,9 +23,9 @@ class Config(FeatureBaseModel):
 
     feature_name: str = dist.name
 
-    group_name: str = constants.ASSET_HEADER["group_name"]
+    group_name: str = ASSET_HEADER["group_name"]
 
-    key_prefixes: List[str] = constants.ASSET_HEADER["key_prefix"]
+    key_prefixes: List[str] = ASSET_HEADER["key_prefix"]
 
     n8n_docker_image: str = Field(
         default="docker.n8n.io/n8nio/n8n",
