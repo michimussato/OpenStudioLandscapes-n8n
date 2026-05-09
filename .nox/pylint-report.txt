@@ -19,15 +19,13 @@ src/OpenStudioLandscapes/n8n/readme_feature.py:6:0: C0116: Missing function or m
 src/OpenStudioLandscapes/n8n/readme_feature.py:51:8: C2801: Unnecessarily calls dunder method __str__. Use str built-in function. (unnecessary-dunder-call)
 src/OpenStudioLandscapes/n8n/readme_feature.py:70:8: C2801: Unnecessarily calls dunder method __str__. Use str built-in function. (unnecessary-dunder-call)
 src/OpenStudioLandscapes/n8n/readme_feature.py:85:8: C2801: Unnecessarily calls dunder method __str__. Use str built-in function. (unnecessary-dunder-call)
-************* Module OpenStudioLandscapes.n8n.constants
-src/OpenStudioLandscapes/n8n/constants.py:7:1: W0511: Todo (fixme)
-src/OpenStudioLandscapes/n8n/constants.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module OpenStudioLandscapes.n8n._definitions_with_upstream_specs
 src/OpenStudioLandscapes/n8n/_definitions_with_upstream_specs.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 ************* Module OpenStudioLandscapes.n8n.__init__
 src/OpenStudioLandscapes/n8n/__init__.py:15:5: W0511: TODO: Import directly (no need for conditional) when `python_requires = >= 3.8` (fixme)
 ************* Module OpenStudioLandscapes.n8n
 src/OpenStudioLandscapes/n8n/__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+src/OpenStudioLandscapes/n8n/__init__.py:39:4: C0103: Constant name "fill" doesn't conform to UPPER_CASE naming style (invalid-name)
 ************* Module OpenStudioLandscapes.n8n.config.models
 src/OpenStudioLandscapes/n8n/config/models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
 src/OpenStudioLandscapes/n8n/config/models.py:18:0: C0115: Missing class docstring (missing-class-docstring)
@@ -46,5 +44,5 @@ src/OpenStudioLandscapes/n8n/doc/readme.py:6:0: C0116: Missing function or metho
 src/OpenStudioLandscapes/n8n/doc/readme.py:21:8: C2801: Unnecessarily calls dunder method __str__. Use str built-in function. (unnecessary-dunder-call)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.89/10 (previous run: 7.80/10, +0.09)
+Your code has been rated at 7.93/10 (previous run: 7.83/10, +0.10)
 
