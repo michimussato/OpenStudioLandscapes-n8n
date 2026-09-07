@@ -40,11 +40,11 @@ from OpenStudioLandscapes.engine.utils.docker.compose_dicts import (
     get_network_dicts,
 )
 
+from OpenStudioLandscapes.n8n.config import models
 from OpenStudioLandscapes.n8n.constants import (
     ASSET_HEADER,
     dist,
 )
-from OpenStudioLandscapes.n8n.config import models
 
 # https://github.com/yaml/pyyaml/issues/722#issuecomment-1969292770
 yaml.SafeDumper.add_multi_representer(
